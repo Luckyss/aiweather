@@ -4,7 +4,9 @@ Sample Project to show you, how you can use Clean Architecture + MVP with Kotlin
 To build this project, you will need:
  - an Open Weather Map API Key. You can get it [here](https://openweathermap.org/) and put it in your `gradle.properties` file with a link from your build.gradle file;
  - a Dialog Flow API Key. You can get it [here](https://console.dialogflow.com).
-
+ 
+ <img src="static/Scn_start.png" width="250"> <img src="static/Scn_London.png" width="250"> <img src="static/Scn_Berlin.png" width="250">
+ 
 Libraries and tools included:
 
 - Support libraries
@@ -35,7 +37,7 @@ Libraries and tools included:
 
 ## Architecture
 
-This project follows Uncle Bob's Clean Architecture (https://8thlight.com/blog/uncle-bob/2012/08/13/the-clean-architecture.html) and MVP Android architecture approach (https://en.wikipedia.org/wiki/Model%E2%80%93view%E2%80%93presenter). Read more about it [here](http://antonioleiva.com/mvp-android/). 
+This project follows [Uncle Bob's Clean Architecture](https://8thlight.com/blog/uncle-bob/2012/08/13/the-clean-architecture.html) and [MVP Android architecture approach](https://en.wikipedia.org/wiki/Model%E2%80%93view%E2%80%93presenter). Read more about it [here](http://antonioleiva.com/mvp-android/). 
 
 **NOTE:** Some say, that you just can't use boilerplate code to start a new project... Well, it's not true. I like programming and I don't like to write a lot of boilerplate code (same as you, I suppose). On the web, for instance, they have Twitter Bootstrap for front-end, and all the people around use it just because it's useful and easy to use, so you can concentrate on some other goals. 
 
