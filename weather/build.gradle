@@ -1,0 +1,55 @@
+apply plugin: 'com.android.feature'
+
+apply plugin: 'kotlin-kapt'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
+
+android {
+    compileSdkVersion setup.compileSdk
+
+    defaultConfig {
+        minSdkVersion setup.minSdk
+        targetSdkVersion setup.targetSdk
+
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+    }
+
+    buildTypes {
+        release {
+            manifestPlaceholders = [appId: setup.applicationId]
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+        debug {
+            manifestPlaceholders = [appId: setup.applicationId + setup.applicationDebugSuffix]
+            debuggable true
+        }
+    }
+    buildTypes.each {
+        it.buildConfigField 'String', 'WEATHER_API_KEY', weatherkey
+        it.buildConfigField 'String', 'AI_ACCESS_TOKEN', aiaccesstoken
+    }
+
+    compileOptions {
+        sourceCompatibility setup.JavaVers
+        targetCompatibility setup.JavaVers
+    }
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation project(':base')
+
+    compile 'ai.api:sdk:2.0.7@aar'
+    compile 'ai.api:libai:1.6.12'
+
+    // glide
+    implementation "com.github.bumptech.glide:glide:$versions.glide"
+    kapt "com.github.bumptech.glide:compiler:$versions.glide"
+
+    // Room DB
+    kapt "android.arch.persistence.room:compiler:$versions.room"
+
+    // Dagger 2
+    kapt "com.google.dagger:dagger-compiler:$versions.dagger"
+}

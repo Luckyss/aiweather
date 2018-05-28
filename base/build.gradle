@@ -1,0 +1,125 @@
+apply plugin: 'com.android.feature'
+
+apply plugin: 'kotlin-kapt'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
+
+android {
+    compileSdkVersion setup.compileSdk
+
+    baseFeature true
+
+    defaultConfig {
+        minSdkVersion setup.minSdk
+        targetSdkVersion setup.targetSdk
+
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+    }
+
+    buildTypes {
+        release {
+            def mainAppId = "${setup.applicationId}"
+            //region placeholders
+            manifestPlaceholders = [appId: mainAppId]
+            //endregion
+            //region BuildConfig field
+            buildConfigField "String", "MAIN_APP_ID", "\"${mainAppId}\""
+            //endregion
+            //region Resources values
+            resValue "string", "main_app_id", "${mainAppId}"
+            //endregion
+
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+        debug {
+            def mainAppId = "${setup.applicationId}${setup.applicationDebugSuffix}"
+            //region placeholders
+            manifestPlaceholders = [appId: mainAppId]
+            //endregion
+            //region BuildConfig field
+            buildConfigField "String", "MAIN_APP_ID", "\"${mainAppId}\""
+            //endregion
+            //region Resources values
+            resValue "string", "main_app_id", "${mainAppId}"
+            //endregion
+
+            debuggable true
+        }
+    }
+
+    compileOptions {
+        sourceCompatibility setup.JavaVers
+        targetCompatibility setup.JavaVers
+    }
+}
+
+dependencies {
+
+    api 'com.android.support.constraint:constraint-layout:1.1.0'
+    testImplementation 'junit:junit:4.12'
+
+    application project(':app')
+    feature project(':weather')
+
+    // Kotlin
+    api "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlin_version"
+    api "org.jetbrains.kotlin:kotlin-reflect:$kotlin_version"
+    api "androidx.core:core-ktx:$versions.core_ktx"
+
+    // Android
+    api "com.android.support:recyclerview-v7:$versions.support"
+    api "com.android.support:appcompat-v7:$versions.support"
+    api "com.android.support:support-v13:$versions.support"
+    api "com.android.support:cardview-v7:$versions.support"
+    api "com.android.support:support-v4:$versions.support"
+    api "com.android.support:design:$versions.support"
+
+    api("com.google.android.gms:play-services-location:$versions.play_services") {
+        exclude group: 'com.android.support', module: 'support-v4'
+    }
+    api("com.google.android.gms:play-services-maps:$versions.play_services") {
+        exclude group: 'com.android.support', module: 'support-v4'
+    }
+
+    // Room DB
+    api "android.arch.persistence.room:rxjava2:$versions.room"
+    api "android.arch.persistence.room:runtime:$versions.room"
+    kapt "android.arch.persistence.room:compiler:$versions.room"
+
+    // Dagger 2
+    api "com.google.dagger:dagger:$versions.dagger"
+    kapt "com.google.dagger:dagger-compiler:$versions.dagger"
+
+    // Rx
+    api "io.reactivex.rxjava2:rxandroid:$versions.rxJava"
+    api "io.reactivex.rxjava2:rxjava:$versions.rxAndroid"
+
+    // RxBinding
+    api "com.jakewharton.rxbinding2:rxbinding:$versions.rxBinding"
+
+    // Retrofit
+    api "com.squareup.retrofit2:retrofit:$versions.retrofit"
+    api "com.squareup.retrofit2:adapter-rxjava2:$versions.retrofit"
+    api "com.squareup.retrofit2:converter-gson:$versions.retrofit"
+
+    // Gson
+    api "com.google.code.gson:gson:$versions.gson"
+
+    // Timber
+    api "com.jakewharton.timber:timber:$versions.timber"
+
+    // Stetho
+    debugApi "com.facebook.stetho:stetho:$versions.stetho"
+    debugApi "com.facebook.stetho:stetho-okhttp3:$versions.stetho"
+
+    // Chuck
+    debugImplementation "com.readystatesoftware.chuck:library:$versions.chuck"
+    releaseImplementation "com.readystatesoftware.chuck:library-no-op:$versions.chuck"
+    testImplementation "com.readystatesoftware.chuck:library-no-op:$versions.chuck"
+
+    // Okhttp request logger
+    debugApi "com.squareup.okhttp3:logging-interceptor:$versions.okhttp3_logging"
+
+    api "ru.androidpirates.permissions:retriever-kt:$versions.permissions_retriever"
+}

@@ -1,0 +1,9 @@
+<resources>
+    <string name="no_weather_data">No weather data</string>
+    <string name="template_coords">Your coords: %s</string>
+    <string name="template_underline_text"><u>%s</u></string>
+    <string name="template_degrees">%s˚</string>
+    <string name="template_min_max">L %s˚ / H %s˚</string>
+    <string name="template_pressure">Pressure: %s hPa</string>
+    <string name="template_wind_speed">Wind speed: %s m/s</string>
+</resources>

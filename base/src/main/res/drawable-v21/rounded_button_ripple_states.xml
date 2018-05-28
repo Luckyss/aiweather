@@ -1,0 +1,15 @@
+<ripple xmlns:android="http://schemas.android.com/apk/res/android"
+        android:color="@color/colorAccent">
+    <item android:id="@android:id/mask">
+        <shape>
+            <solid android:color="@color/colorAccent"/>
+            <corners android:radius="4dp"/>
+            <padding
+                android:bottom="8dp"
+                android:left="24dp"
+                android:right="24dp"
+                android:top="8dp"/>
+        </shape>
+    </item>
+    <item android:drawable="@drawable/rounded_button_default_state"/>
+</ripple>

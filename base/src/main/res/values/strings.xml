@@ -1,0 +1,11 @@
+<resources>
+    <string name="error_empty_response">Error</string>
+    <string name="dialog_message_internet">No internet connection</string>
+
+    <string name="menu_drawer_on_delivery" translatable="true">On Delivery</string>
+    <string name="menu_drawer_all" translatable="true">All</string>
+    <string name="menu_drawer_map" translatable="true">Map</string>
+
+    <string name="profile_title" translatable="true">Profile</string>
+
+</resources>

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="error_empty_response">Ошибка</string>
+    <string name="dialog_message_internet">Нет интернет-соединения</string>
+    <string name="menu_drawer_on_delivery">На доставке</string>
+    <string name="menu_drawer_all">Все</string>
+    <string name="menu_drawer_map">Карта</string>
+
+    <string name="profile_title">Профиль</string>
+</resources>
