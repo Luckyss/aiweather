@@ -39,7 +39,7 @@ Libraries and tools included:
 
 This project follows [Uncle Bob's Clean Architecture](https://8thlight.com/blog/uncle-bob/2012/08/13/the-clean-architecture.html) and [MVP Android architecture approach](https://en.wikipedia.org/wiki/Model%E2%80%93view%E2%80%93presenter). Read more about it [here](http://antonioleiva.com/mvp-android/). 
 
-**NOTE:** Some say, that you just can't use boilerplate code to start a new project... Well, it's not true. I like programming and I don't like to write a lot of boilerplate code (same as you, I suppose). On the web, for instance, they have Twitter Bootstrap for front-end, and all the people around use it just because it's useful and easy to use, so you can concentrate on some other goals. 
+**NOTE:** Some say, that you just can't use boilerplate code to start a new project... Well, it's not true. I like programming and I don't like writing a lot of boilerplate code (same as you, I suppose). On the web, for instance, they have Twitter Bootstrap for front-end, and all the people around use it just because it's convenient and easy to use, so you can concentrate on some other goals. 
 
 This project uses as a base [Android Pirates' team best practices and all the experience we aggregated](https://github.com/AndroidPirates) for the last few years. My team and I found and created this codebase empirically. For now, this is the best base you could have for your android project (IMO).
 
